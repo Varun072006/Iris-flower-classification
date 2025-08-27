@@ -1,75 +1,82 @@
-# 🌸 Iris Flower Classification using SVM  
+# 🌸 Iris Flower Classification & Regression (SVM + Linear Regression)
 
-## 🔗 Live App  
+## 📌 Introduction
+The **Iris dataset** is one of the most famous datasets in Machine Learning, containing measurements of iris flowers from three different species: **Setosa, Versicolor, and Virginica**.  
+The dataset includes four numerical features:
+- Sepal Length (cm)  
+- Sepal Width (cm)  
+- Petal Length (cm)  
+- Petal Width (cm)  
 
-👉 [Click here to try the app](https://your-streamlit-deployment-link.com)  
-
----
-
-A **Machine Learning + Streamlit** project that predicts the species of an **Iris flower** (Setosa, Versicolor, Virginica) based on four flower measurements:  
-
-- Sepal Length  
-- Sepal Width  
-- Petal Length  
-- Petal Width  
-
-This project demonstrates how to:  
-✅ Train an **SVM (Support Vector Machine)** model on the Iris dataset  
-✅ Save the trained model using **Pickle**  
-✅ Create a **Streamlit web app** frontend for real-time predictions  
+The target is the **species of the flower**.  
+In this project, we:
+1. Perform **Exploratory Data Analysis (EDA)** to visualize feature distributions and correlations.  
+2. Build a **Support Vector Machine (SVM)** classifier to classify flowers into the three species.  
+3. Evaluate model performance with accuracy and confusion matrix.  
+4. Deploy the model in a **Streamlit app** for interactive predictions.  
+5. Extend the task with a **Regression problem**: predicting petal length using the other features.
 
 ---
 
-## 📖 Introduction  
+## 🔎 Methodology
+### 1. Data Preprocessing
+- Checked for missing values (none found).
+- Encoded the categorical species column into numerical labels.
+- Scaled the features using **StandardScaler** (important for SVM).
 
-The **Iris dataset** is one of the most famous datasets in machine learning, often used as a beginner project for classification tasks.  
+### 2. Exploratory Data Analysis (EDA)
+- Created **pairplots** to visualize feature relationships across species.
+- Generated a **correlation heatmap** to understand feature correlations.
 
-In this project:  
-- We trained a **Support Vector Machine (SVM)** classifier on the dataset.  
-- The trained model was saved as `iris_svm_model.pkl`.  
-- A **Streamlit app** was built to provide an interactive UI where users can enter flower measurements and get instant predictions.  
+### 3. Classification (SVM)
+- Split data into **train (80%)** and **test (20%)** sets.  
+- Trained an **SVM classifier** with RBF kernel.  
+- Evaluated using **accuracy** and **confusion matrix**.  
+- Predicted a custom sample: *(sepal length=5.5, sepal width=3.0, petal length=4.2, petal width=1.3)*.  
 
-This combines **ML model training** with **frontend deployment**.  
+### 4. Regression Task
+- Predicted **Petal Length** from sepal length, sepal width, and petal width using **Linear Regression**.  
+- Evaluated with **RMSE (Root Mean Squared Error)** and **R² Score**.  
 
----
-
-## 📸 Screenshots  
-
-### 🔹 Streamlit App – Homepage  
-![App Screenshot 1](screenshots/homepage.png)  
-
-### 🔹 Prediction Example  
-![App Screenshot 2](screenshots/prediction.png)  
-
----
-
-
-## 📊 Example Prediction  
-
-**Input values:**  
-- Sepal Length = 5.5  
-- Sepal Width = 3.0  
-- Petal Length = 4.2  
-- Petal Width = 1.3  
-
-**Predicted Output:** 🌼 *Versicolor*  
+### 5. Deployment (Streamlit App)
+- Built an interactive web app where users can input flower measurements.  
+- The trained model predicts the species and displays results in a clean UI.
 
 ---
 
-## 🎯 Conclusion  
+## 📊 Results & Outputs
 
-This project shows how a **classic ML dataset (Iris)** can be used to build:  
-- A **classification model (SVM)**  
-- A **frontend app (Streamlit)**  
-- An **end-to-end ML pipeline** (training → saving → deployment)  
+### 🌼 Pairplot of Iris Features
+![Pairplot](Images/Pairplot.png)
 
-🔮 Future Improvements:  
-- Add more ML models (Decision Trees, Logistic Regression)  
-- Enhance UI with flower images  
-- Deploy to **Streamlit Cloud / Heroku / Render**  
+### 🔥 Correlation Heatmap
+![Heatmap](Images/heatmap.png)
+
+### ✅ Classification Results
+- **Accuracy:** ~95–100% (depending on train-test split)  
+- **Confusion Matrix:**  
+![Confusion Matrix](Images/Confusion_matrix.png)
+
+### 🎯 Prediction Example
+Input: *(5.5, 3.0, 4.2, 1.3)*  
+Output: **Versicolor 🌸**
+
+### 📈 Regression Results
+- **RMSE:** e.g., `0.25`  
+- **R² Score:** e.g., `0.92`  
+- Scatter plot of actual vs. predicted petal length:  
+![Regression Plot](Images/Scatter_plot.png)
+
+### 🌍 Streamlit App
+Interactive prediction interface:  
+![Streamlit App](Images/iris_flower_.png)
 
 ---
 
-## 👨‍💻 Author  
+## 📝 Conclusion
+- The **SVM classifier** performed very well on the Iris dataset, achieving high accuracy and producing a clear separation between species.  
+- Visualizations confirmed that **petal measurements** (especially petal length and width) are the most significant features for classification.  
+- The **regression task** demonstrated that petal length can be reliably predicted from the other features, showing strong linear relationships.  
+- Finally, the **Streamlit app** provides an easy-to-use and interactive way to classify iris flowers, making this project practical and user-friendly.  
 
-- Developed by *VARUN.S* ✨  # Iris-flower-classification
+---
